@@ -1,0 +1,36 @@
+.grid-container { 
+    text-align: center; 
+    padding: 20px; 
+}
+.button-grid { 
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 15px; 
+        justify-content: center; 
+        margin-top: 20px; 
+}
+.action-btn { 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center;
+      width: 120px; 
+      height: 120px; 
+      border-radius: 16px; 
+      border: 2px solid #e0e0e0;
+      background: white; 
+      cursor: pointer; 
+      transition: transform 0.2s, border-color 0.2s;
+}
+.action-btn:hover { 
+        transform: translateY(-5px); 
+        border-color: #4CAF50; 
+}
+.icon { 
+    font-size: 2.5rem; 
+    margin-bottom: 8px; 
+}
+.name { 
+    font-weight: bold; 
+    color: #333; 
+}

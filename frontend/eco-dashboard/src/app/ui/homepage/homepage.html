@@ -1,0 +1,100 @@
+<div class="min-h-screen flex flex-col bg-black text-white">
+
+  <!-- HEADER -->
+  <header class="fixed top-0 left-0 w-full z-50">
+    <nav class="mx-auto max-w-7xl px-6 py-3 flex items-center justify-between 
+        rounded-b-xl bg-white/10 backdrop-blur-md border-b border-white/20 shadow-md">
+
+      <!-- Logo -->
+      <div
+        class="text-lg sm:text-xl font-bold tracking-wide bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+        Planetary
+      </div>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex gap-6 text-sm font-medium text-gray-200">
+        <a href="#about" class="hover:text-sky-400 transition-colors">About</a>
+      </div>
+
+      <!-- Desktop auth -->
+      <div class="hidden md:flex gap-3">
+        <a href="/dashboard"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/30 text-gray-200 hover:bg-white/10 transition">
+          dashboard
+        </a>
+      </div>
+
+      <!-- Mobile button -->
+      <button class="md:hidden text-gray-200" (click)="toggleMenu()">
+        <span *ngIf="!isOpen">☰</span>
+        <span *ngIf="isOpen">✕</span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div *ngIf="isOpen" class="md:hidden bg-black/90 backdrop-blur-md border-t border-white/10 px-6 py-4 space-y-4">
+
+      <div class="flex flex-col gap-4 text-gray-200">
+        <a href="#about" (click)="closeMenu()">About</a>
+        <a href="#contact" (click)="closeMenu()">Contact</a>
+      </div>
+
+      <div class="flex flex-col gap-3 mt-4">
+        <a href="/dashboard" (click)="closeMenu()" class="px-3 py-2 rounded-lg border border-white/30 text-center">
+          dashboard
+        </a>
+
+      </div>
+    </div>
+  </header>
+
+
+    <!-- HERO -->
+    <section class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+
+      <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+        <source [src]="backgroundVideo" type="video/mp4" />
+      </video>
+
+      <div class="absolute inset-0 bg-black/60"></div>
+
+      <div class="relative z-10 px-6">
+        <h1
+          class="text-4xl sm:text-6xl font-extrabold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent">
+          Welcome to Planetary
+        </h1>
+
+        <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-300">
+          An educational, secure dashboard designed for students to log daily "green" activities
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-20 px-6 bg-gradient-to-b from-slate-900 to-black" id="about">
+      <div class="max-w-6xl mx-auto text-center mb-12">
+
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+
+        <div class="flex justify-center mb-6">
+          <img [src]="about" class="w-40 h-40 rounded-full object-cover border-4 border-sky-500/40" />
+        </div>
+
+        <p class="text-gray-400 max-w-2xl mx-auto">
+          I’m Kaushik, creator of Planetary. I love building with Strapi, React,
+          and exploring data-driven visualizations of the universe.
+        </p>
+      </div>
+    </section>
+
+    <!-- NATURE PUZZLE -->
+    <app-nature-puzzle></app-nature-puzzle>
+
+    <!-- FOOTER -->
+    <footer class="py-6 px-6 bg-black border-t border-white/10 text-center text-gray-400">
+      © {{ currentYear }} Planetary
+    </footer>
+
+
+</div>

@@ -1,1 +1,11 @@
-<p>activity-grid works!</p>
+<div class="grid-container">
+    <h3>What did you do today to help Earth?</h3>
+    <div class="button-grid">
+        @for (action of availableActions; track action.name) {
+        <button class="action-btn" (click)="logIt(action.name, action.icon)">
+            <span class="icon">{{ action.icon }}</span>
+            <span class="name">{{ action.name }}</span>
+        </button>
+        }
+    </div>
+</div>

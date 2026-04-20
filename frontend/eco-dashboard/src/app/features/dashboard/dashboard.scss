@@ -1,0 +1,350 @@
+/* ═══════════════════════════════════════════════════════════════
+   ECO-HERO DASHBOARD — Earth Day Playful Theme
+   Font imports: add to index.html or styles.scss:
+   @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700;800;900&display=swap');
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── CSS Variables ─────────────────────────────── */
+:host {
+  --green-dark:   #1b5e20;
+  --green-mid:    #2e7d32;
+  --green:        #43a047;
+  --green-light:  #81c784;
+  --green-pale:   #e8f5e9;
+  --lime:         #8bc34a;
+  --sky:          #87ceeb;
+  --sun-yellow:   #ffd54f;
+  --soil:         #795548;
+  --water:        #29b6f6;
+  --cream:        #f9f6ee;
+  --coral:        #ff8a65;
+  display: block;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* ─── Dashboard Wrapper ─────────────────────────── */
+.dashboard-wrapper {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+  background: linear-gradient(160deg, #e8f5e9 0%, #f9fbe7 50%, #e3f2fd 100%);
+  border-radius: 30px;
+  border: 3px solid #a5d6a7;
+  overflow: hidden;
+  box-shadow: 0 20px 60px #1b5e2018, 0 4px 18px #0001;
+  padding-bottom: 1.8rem;
+}
+
+/* ─── Sky Scene (pseudo before) ─────────────────── */
+.dashboard-wrapper::before {
+  content: '';
+  display: block;
+  height: 160px;
+  background:
+    /* ground soil */
+    linear-gradient(180deg, #5d4037 0%, #5d4037 100%) bottom / 100% 14px no-repeat,
+    /* grass */
+    linear-gradient(180deg, #66bb6a 0%, #4caf50 100%) bottom 14px left / 100% 28px no-repeat,
+    /* sky gradient */
+    linear-gradient(180deg, #87ceeb 0%, #b3e5fc 55%, #c8e6c9 100%);
+  position: relative;
+}
+
+/* ─── Header ────────────────────────────────────── */
+header {
+  position: relative;
+  text-align: center;
+  padding: 1.3rem 1rem 0.5rem;
+  /* decorative SVG cartoon scene as background */
+  background-image:
+    /* Sun rays glow */
+    radial-gradient(ellipse 60px 60px at 88% 0%, #fff9c455 0%, transparent 70%),
+    /* soft leaf texture */
+    radial-gradient(ellipse 200px 80px at 10% 50%, #a5d6a715 0%, transparent 70%);
+}
+
+header::before {
+  /* animated cloud strip */
+  content: '';
+  position: absolute;
+  top: -158px;
+  left: 0; right: 0;
+  height: 160px;
+  pointer-events: none;
+  background-image:
+    /* tree silhouettes */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='160'%3E%3C!-- Tree 1 --%3E%3Cellipse cx='60' cy='108' rx='22' ry='30' fill='%231b5e20'/%3E%3Crect x='56' y='132' width='8' height='20' rx='3' fill='%23795548'/%3E%3C!-- Tree 2 --%3E%3Cellipse cx='140' cy='100' rx='28' ry='38' fill='%232e7d32'/%3E%3Crect x='135' y='132' width='10' height='22' rx='3' fill='%23795548'/%3E%3C!-- Tree 3 --%3E%3Cellipse cx='220' cy='110' rx='18' ry='24' fill='%2343a047'/%3E%3Crect x='217' y='130' width='6' height='16' rx='2' fill='%23795548'/%3E%3C!-- Tree 4 --%3E%3Cellipse cx='480' cy='102' rx='25' ry='34' fill='%231b5e20'/%3E%3Crect x='476' y='130' width='8' height='20' rx='3' fill='%23795548'/%3E%3C!-- Tree 5 --%3E%3Cellipse cx='570' cy='108' rx='20' ry='28' fill='%232e7d32'/%3E%3Crect x='566' y='130' width='7' height='18' rx='2' fill='%23795548'/%3E%3C!-- Tree 6 --%3E%3Cellipse cx='650' cy='100' rx='30' ry='40' fill='%231b5e20'/%3E%3Crect x='645' y='132' width='10' height='22' rx='3' fill='%23795548'/%3E%3C!-- Sun --%3E%3Ccircle cx='620' cy='38' r='28' fill='%23ffd54f'/%3E%3Ccircle cx='620' cy='38' r='22' fill='%23fff9c4'/%3E%3C!-- Cloud 1 --%3E%3Cellipse cx='120' cy='30' rx='40' ry='14' fill='white' opacity='.85'/%3E%3Ccircle cx='105' cy='22' r='18' fill='white' opacity='.85'/%3E%3Ccircle cx='135' cy='20' r='14' fill='white' opacity='.85'/%3E%3C!-- Cloud 2 --%3E%3Cellipse cx='300' cy='48' rx='30' ry='10' fill='white' opacity='.65'/%3E%3Ccircle cx='288' cy='42' r='13' fill='white' opacity='.65'/%3E%3Ccircle cx='310' cy='40' r='10' fill='white' opacity='.65'/%3E%3C!-- Rainbow arc --%3E%3Cpath d='M30 90 Q120 20 210 90' stroke='%23ef9a9a' stroke-width='4' fill='none' opacity='.35'/%3E%3Cpath d='M36 90 Q120 28 204 90' stroke='%23fff59d' stroke-width='4' fill='none' opacity='.35'/%3E%3Cpath d='M42 90 Q120 36 198 90' stroke='%23a5d6a7' stroke-width='4' fill='none' opacity='.35'/%3E%3Cpath d='M48 90 Q120 44 192 90' stroke='%2381d4fa' stroke-width='4' fill='none' opacity='.35'/%3E%3C!-- Cartoon Bird --%3E%3Cellipse cx='380' cy='55' rx='9' ry='6' fill='%23ff8a65'/%3E%3Ccircle cx='387' cy='52' r='5' fill='%23ff8a65'/%3E%3Ccircle cx='390' cy='50' r='1.5' fill='white'/%3E%3Ccircle cx='390.5' cy='50.3' r='.8' fill='%23333'/%3E%3Cpath d='M392 51 Q395 49.5 393.5 53' stroke='%23ffd54f' stroke-width='1.2' fill='none'/%3E%3Cpath d='M371 55 Q367 51 371 50' fill='%23ffb74d'/%3E%3C!-- Butterfly --%3E%3Cellipse cx='440' cy='45' rx='9' ry='6' fill='%23ce93d8' opacity='.9' transform='rotate(-20 440 45)'/%3E%3Cellipse cx='456' cy='45' rx='9' ry='6' fill='%23ba68c8' opacity='.9' transform='rotate(20 456 45)'/%3E%3Cellipse cx='441' cy='53' rx='6' ry='4' fill='%23e1bee7' opacity='.85' transform='rotate(-10 441 53)'/%3E%3Cellipse cx='455' cy='53' rx='6' ry='4' fill='%23ce93d8' opacity='.85' transform='rotate(10 455 53)'/%3E%3Cline x1='448' y1='40' x2='448' y2='57' stroke='%236d4c41' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 720px 160px;
+  background-repeat: no-repeat;
+}
+
+header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem;
+  color: var(--green-dark);
+  text-shadow: 0 3px 0 #a5d6a7, 0 5px 14px #0001;
+  line-height: 1.15;
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+/* ─── Cartoon Characters Strip ──────────────────── */
+header::after {
+  content: '';
+  display: block;
+  height: 88px;
+  margin-top: 0.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='680' height='88' viewBox='0 0 680 88'%3E%3C!-- TREELO the Tree --%3E%3Cellipse cx='82' cy='50' rx='20' ry='14' fill='%2343a047'/%3E%3Cellipse cx='82' cy='38' rx='16' ry='13' fill='%23388e3c'/%3E%3Cellipse cx='82' cy='27' rx='12' ry='11' fill='%232e7d32'/%3E%3Crect x='78' y='62' width='8' height='20' rx='3' fill='%23795548'/%3E%3Ccircle cx='79' cy='37' r='2' fill='white'/%3E%3Ccircle cx='85' cy='37' r='2' fill='white'/%3E%3Ccircle cx='79.6' cy='37.6' r='1' fill='%231b5e20'/%3E%3Ccircle cx='85.6' cy='37.6' r='1' fill='%231b5e20'/%3E%3Cpath d='M78 42 Q82 46 86 42' stroke='%231b5e20' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='75' cy='41' rx='2.2' ry='1.4' fill='%23ff8a6540'/%3E%3Cellipse cx='89' cy='41' rx='2.2' ry='1.4' fill='%23ff8a6540'/%3E%3Cpath d='M62 38 Q68 34 74 40' stroke='%23795548' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M102 38 Q96 34 90 40' stroke='%23795548' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ctext x='82' y='87' text-anchor='middle' font-family='Nunito,sans-serif' font-size='9' font-weight='800' fill='%232e7d32' letter-spacing='1'%3ETREELO%3C/text%3E%3C!-- EARTHIE the Globe --%3E%3Ccircle cx='210' cy='38' r='26' fill='%231565c0'/%3E%3Cellipse cx='205' cy='30' rx='10' ry='8' fill='%2343a047' transform='rotate(-15 205 30)'/%3E%3Cellipse cx='220' cy='38' rx='7' ry='5' fill='%23388e3c' transform='rotate(10 220 38)'/%3E%3Cellipse cx='200' cy='48' rx='6' ry='4' fill='%232e7d32' transform='rotate(-5 200 48)'/%3E%3Cellipse cx='218' cy='22' rx='4' ry='2.5' fill='%234caf50' transform='rotate(20 218 22)'/%3E%3Cellipse cx='200' cy='24' rx='4.5' ry='2.5' fill='white' opacity='.3' transform='rotate(-30 200 24)'/%3E%3Ccircle cx='205' cy='34' r='2.5' fill='white'/%3E%3Ccircle cx='215' cy='34' r='2.5' fill='white'/%3E%3Ccircle cx='205.8' cy='34.8' r='1.2' fill='%230d47a1'/%3E%3Ccircle cx='215.8' cy='34.8' r='1.2' fill='%230d47a1'/%3E%3Cpath d='M204 41 Q210 46 216 41' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M184 38 Q189 30 196 36' stroke='%2329b6f6' stroke-width='3.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M236 38 Q231 30 224 36' stroke='%2329b6f6' stroke-width='3.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='184' cy='38' r='3' fill='%2329b6f6'/%3E%3Ccircle cx='236' cy='38' r='3' fill='%2329b6f6'/%3E%3Crect x='200' y='64' width='8' height='14' rx='4' fill='%2329b6f6'/%3E%3Crect x='212' y='64' width='8' height='14' rx='4' fill='%2329b6f6'/%3E%3Ctext x='210' y='87' text-anchor='middle' font-family='Nunito,sans-serif' font-size='9' font-weight='800' fill='%230277bd' letter-spacing='1'%3EEARTHIE%3C/text%3E%3C!-- SUNNY the Sunflower --%3E%3Cline x1='340' y1='86' x2='340' y2='52' stroke='%23558b2f' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M338 68 Q328 63 330 73 Q336 71 338 68Z' fill='%2366bb6a'/%3E%3Cpath d='M342 60 Q352 54 350 64 Q344 62 342 60Z' fill='%2381c784'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f' transform='rotate(45 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffb300' transform='rotate(90 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f' transform='rotate(135 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f' transform='rotate(180 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffb300' transform='rotate(225 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f' transform='rotate(270 340 40)'/%3E%3Cellipse cx='340' cy='30' rx='4' ry='8' fill='%23ffd54f' transform='rotate(315 340 40)'/%3E%3Ccircle cx='340' cy='40' r='9' fill='%236d4c41'/%3E%3Ccircle cx='340' cy='40' r='7' fill='%23795548'/%3E%3Ccircle cx='337' cy='38' r='1' fill='%234e342e'/%3E%3Ccircle cx='341' cy='37' r='1' fill='%234e342e'/%3E%3Ccircle cx='343' cy='40' r='1' fill='%234e342e'/%3E%3Ccircle cx='338' cy='42' r='1' fill='%234e342e'/%3E%3Ccircle cx='342' cy='43' r='1' fill='%234e342e'/%3E%3Ccircle cx='337.5' cy='38.5' r='1.4' fill='white'/%3E%3Ccircle cx='342.5' cy='38.5' r='1.4' fill='white'/%3E%3Ccircle cx='338' cy='39' r='.7' fill='%231a1a1a'/%3E%3Ccircle cx='343' cy='39' r='.7' fill='%231a1a1a'/%3E%3Cpath d='M337 43 Q340 46 343 43' stroke='white' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3Ctext x='340' y='87' text-anchor='middle' font-family='Nunito,sans-serif' font-size='9' font-weight='800' fill='%23e65100' letter-spacing='1'%3ESUNNY%3C/text%3E%3C!-- DEWEY the Raindrop --%3E%3Cpath d='M470 8 Q484 28 484 44 Q484 60 470 64 Q456 60 456 44 Q456 28 470 8Z' fill='%2329b6f6'/%3E%3Cpath d='M464 18 Q468 12 472 18 Q470 14 464 18Z' fill='white' opacity='.45'/%3E%3Ccircle cx='466' cy='40' r='2.8' fill='white'/%3E%3Ccircle cx='474' cy='40' r='2.8' fill='white'/%3E%3Ccircle cx='466.8' cy='40.8' r='1.3' fill='%230277bd'/%3E%3Ccircle cx='474.8' cy='40.8' r='1.3' fill='%230277bd'/%3E%3Cpath d='M465 47 Q470 51 475 47' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='462' cy='44' rx='3' ry='1.8' fill='%23ffffff35'/%3E%3Cellipse cx='478' cy='44' rx='3' ry='1.8' fill='%23ffffff35'/%3E%3Cpath d='M456 44 Q452 38 448 44' stroke='%234fc3f7' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M484 44 Q488 38 492 44' stroke='%234fc3f7' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ctext x='470' y='87' text-anchor='middle' font-family='Nunito,sans-serif' font-size='9' font-weight='800' fill='%230277bd' letter-spacing='1'%3EDEWEY%3C/text%3E%3C!-- DOTTY the Ladybug --%3E%3Cline x1='590' y1='56' x2='582' y2='68' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='594' y1='59' x2='588' y2='72' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='608' y1='56' x2='616' y2='68' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='604' y1='59' x2='610' y2='72' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='588' y1='50' x2='578' y2='52' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cline x1='610' y1='50' x2='620' y2='52' stroke='%23333' stroke-width='1.8' stroke-linecap='round'/%3E%3Cellipse cx='599' cy='52' rx='20' ry='16' fill='%23e53935'/%3E%3Cline x1='599' y1='37' x2='599' y2='68' stroke='%23333' stroke-width='1.8'/%3E%3Ccircle cx='591' cy='48' r='4' fill='%23333'/%3E%3Ccircle cx='607' cy='48' r='4' fill='%23333'/%3E%3Ccircle cx='592' cy='59' r='3' fill='%23333'/%3E%3Ccircle cx='606' cy='59' r='3' fill='%23333'/%3E%3Ccircle cx='599' cy='34' r='11' fill='%231a1a1a'/%3E%3Cline x1='594' y1='25' x2='589' y2='16' stroke='%231a1a1a' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='604' y1='25' x2='609' y2='16' stroke='%231a1a1a' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='589' cy='15' r='2' fill='%23e53935'/%3E%3Ccircle cx='609' cy='15' r='2' fill='%23e53935'/%3E%3Ccircle cx='595' cy='33' r='3' fill='white'/%3E%3Ccircle cx='603' cy='33' r='3' fill='white'/%3E%3Ccircle cx='595.8' cy='33.6' r='1.5' fill='%231a1a1a'/%3E%3Ccircle cx='603.8' cy='33.6' r='1.5' fill='%231a1a1a'/%3E%3Cpath d='M594 39 Q599 43 604 39' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Ctext x='599' y='87' text-anchor='middle' font-family='Nunito,sans-serif' font-size='9' font-weight='800' fill='%23b71c1c' letter-spacing='1'%3EDOTTY%3C/text%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation: chars-float 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes chars-float {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* ─── app-activity-grid host ────────────────────── */
+app-activity-grid {
+  display: block;
+  margin: 0.6rem 1.2rem 0;
+  background: rgba(255, 255, 255, 0.62);
+  border: 2.5px dashed #a5d6a7;
+  border-radius: 22px;
+  padding: 1rem 1rem 0.8rem;
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+app-activity-grid::before {
+  content: '🌿';
+  position: absolute;
+  top: 8px; right: 13px;
+  font-size: 20px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* ─── Status Panel ───────────────────────────────── */
+.status-panel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0.9rem 1.2rem 0;
+}
+
+/* ─── Counter ────────────────────────────────────── */
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  border: 2.5px solid #a5d6a7;
+  border-radius: 50px;
+  padding: 8px 18px 8px 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #2e7d32;
+  margin: 0;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.counter::before {
+  content: '🍃';
+  font-size: 16px;
+}
+
+.counter strong {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  color: #43a047;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* ─── Hint text ─────────────────────────────────── */
+.hint {
+  flex: 1;
+  min-width: 160px;
+  background: linear-gradient(135deg, #fff8e1, #fffde7);
+  border: 2px dashed #ffd54f;
+  border-radius: 16px;
+  padding: 10px 15px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #e65100;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.hint::before {
+  content: '🌟 ';
+}
+
+/* ─── Generate Button ───────────────────────────── */
+.generate-btn {
+  flex: 1;
+  min-width: 180px;
+  background: linear-gradient(135deg, #2e7d32, #43a047, #66bb6a);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 26px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.08rem;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 5px 18px #43a04745;
+}
+
+.generate-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 75% 50%, #ffffff28, transparent 60%);
+  pointer-events: none;
+}
+
+.generate-btn:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px #43a04755;
+}
+
+.generate-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.generate-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Story Card ────────────────────────────────── */
+.story-card {
+  margin: 1rem 1.2rem 0;
+  background: linear-gradient(135deg, #fff 0%, #f1f8e9 100%);
+  border: 3px solid #a5d6a7;
+  border-radius: 24px;
+  padding: 1.5rem 1.4rem 1.2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 32px #81c78428;
+  animation: story-slide-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: -28px; right: -28px;
+  width: 110px; height: 110px;
+  background: radial-gradient(circle, #c8e6c948, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Bottom cartoon decoration on story card */
+.story-card::after {
+  content: '';
+  display: block;
+  height: 52px;
+  margin-top: 0.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='52'%3E%3C!-- Mushroom --%3E%3Crect x='26' y='30' width='8' height='16' rx='3' fill='%23bcaaa4'/%3E%3Cellipse cx='30' cy='30' rx='16' ry='10' fill='%23ef5350'/%3E%3Ccircle cx='22' cy='26' r='3' fill='white' opacity='.85'/%3E%3Ccircle cx='30' cy='22' r='2.5' fill='white' opacity='.85'/%3E%3Ccircle cx='38' cy='26' r='3' fill='white' opacity='.85'/%3E%3C!-- Flower --%3E%3Cline x1='90' y1='52' x2='90' y2='28' stroke='%23558b2f' stroke-width='2.5' stroke-linecap='round'/%3E%3Cpath d='M88 40 Q82 36 84 44 Q88 42 88 40Z' fill='%2381c784'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f48fb1'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f06292' transform='rotate(60 90 24)'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f48fb1' transform='rotate(120 90 24)'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f06292' transform='rotate(180 90 24)'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f48fb1' transform='rotate(240 90 24)'/%3E%3Cellipse cx='90' cy='20' rx='4' ry='7' fill='%23f06292' transform='rotate(300 90 24)'/%3E%3Ccircle cx='90' cy='24' r='5' fill='%23ffd54f'/%3E%3C!-- Worm --%3E%3Ccircle cx='175' cy='38' r='7' fill='%23ef9a9a'/%3E%3Ccircle cx='186' cy='36' r='7' fill='%23f48fb1'/%3E%3Ccircle cx='197' cy='38' r='7' fill='%23ef9a9a'/%3E%3Ccircle cx='208' cy='36' r='6' fill='%23f48fb1'/%3E%3Ccircle cx='218' cy='34' r='5.5' fill='%23f06292'/%3E%3Ccircle cx='218' cy='28' r='6.5' fill='%23ec407a'/%3E%3Ccircle cx='216' cy='25.5' r='1.6' fill='white'/%3E%3Ccircle cx='220' cy='25.5' r='1.6' fill='white'/%3E%3Ccircle cx='216.5' cy='26' r='.8' fill='%23333'/%3E%3Ccircle cx='220.5' cy='26' r='.8' fill='%23333'/%3E%3Cpath d='M215 31 Q218 34 221 31' stroke='white' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C!-- Bee --%3E%3Cellipse cx='320' cy='28' rx='9' ry='5' fill='%23b3e5fc' opacity='.85' transform='rotate(-20 320 28)'/%3E%3Cellipse cx='334' cy='28' rx='9' ry='5' fill='%23b3e5fc' opacity='.85' transform='rotate(20 334 28)'/%3E%3Cellipse cx='327' cy='38' rx='9' ry='12' fill='%23fdd835'/%3E%3Crect x='318' y='32' width='18' height='3' rx='1.5' fill='%231a1a1a'/%3E%3Crect x='318' y='38' width='18' height='3' rx='1.5' fill='%231a1a1a'/%3E%3Crect x='318' y='44' width='18' height='3' rx='1.5' fill='%231a1a1a'/%3E%3Ccircle cx='327' cy='20' r='9' fill='%23fdd835'/%3E%3Cline x1='323' y1='12' x2='319' y2='5' stroke='%231a1a1a' stroke-width='1.2' stroke-linecap='round'/%3E%3Cline x1='331' y1='12' x2='335' y2='5' stroke='%231a1a1a' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='319' cy='4.5' r='1.8' fill='%23ffb300'/%3E%3Ccircle cx='335' cy='4.5' r='1.8' fill='%23ffb300'/%3E%3Ccircle cx='323' cy='19' r='2.2' fill='white'/%3E%3Ccircle cx='331' cy='19' r='2.2' fill='white'/%3E%3Ccircle cx='323.7' cy='19.6' r='1.1' fill='%231a1a1a'/%3E%3Ccircle cx='331.7' cy='19.6' r='1.1' fill='%231a1a1a'/%3E%3Cpath d='M322 24 Q327 28 332 24' stroke='%231a1a1a' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C!-- Snail --%3E%3Cellipse cx='440' cy='42' rx='16' ry='6' fill='%23ffcc80'/%3E%3Ccircle cx='450' cy='34' r='13' fill='%23ff8a65'/%3E%3Cpath d='M450 34 Q456 28 454 22 Q448 20 444 26 Q442 32 448 34' stroke='%23e64a19' stroke-width='1.5' fill='none'/%3E%3Cellipse cx='428' cy='40' rx='6' ry='5' fill='%23ffe0b2'/%3E%3Cline x1='425' y1='36' x2='422' y2='28' stroke='%23ffcc80' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='430' y1='36' x2='433' y2='28' stroke='%23ffcc80' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='422' cy='27' r='2.2' fill='white'/%3E%3Ccircle cx='433' cy='27' r='2.2' fill='white'/%3E%3Ccircle cx='422.6' cy='27.5' r='1.1' fill='%23333'/%3E%3Ccircle cx='433.6' cy='27.5' r='1.1' fill='%23333'/%3E%3Cpath d='M426 43 Q428 46 430 43' stroke='%23e65100' stroke-width='1' fill='none' stroke-linecap='round'/%3E%3C!-- Dragonfly --%3E%3Cellipse cx='540' cy='28' rx='14' ry='5' fill='%2380deea' opacity='.75' transform='rotate(-15 540 28)'/%3E%3Cellipse cx='556' cy='28' rx='14' ry='5' fill='%234dd0e1' opacity='.75' transform='rotate(15 556 28)'/%3E%3Cellipse cx='540' cy='36' rx='10' ry='3.5' fill='%2380deea' opacity='.65' transform='rotate(-10 540 36)'/%3E%3Cellipse cx='556' cy='36' rx='10' ry='3.5' fill='%234dd0e1' opacity='.65' transform='rotate(10 556 36)'/%3E%3Cellipse cx='548' cy='32' rx='4' ry='16' fill='%230097a7'/%3E%3Ccircle cx='548' cy='18' r='6' fill='%2300838f'/%3E%3Ccircle cx='546' cy='16.5' r='2' fill='white'/%3E%3Ccircle cx='550' cy='16.5' r='2' fill='white'/%3E%3Ccircle cx='546.6' cy='17' r='1' fill='%23006064'/%3E%3Ccircle cx='550.6' cy='17' r='1' fill='%23006064'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+}
+
+@keyframes story-slide-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.story-card h2 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  color: var(--green-dark);
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.story-card h2::before { content: '🌍 '; }
+
+.story-card p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.93rem;
+  color: #33691e;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* ─── Reset Button ───────────────────────────────── */
+.reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #e3f2fd, #e1f5fe);
+  color: #0277bd;
+  border: 2.5px solid #81d4fa;
+  border-radius: 50px;
+  padding: 9px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.reset-btn::before { content: '🌅 '; }
+
+.reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #29b6f640;
+}
+
+/* ─── Floating leaf particles ────────────────────── */
+.dashboard-wrapper > *:last-child::after {
+  content: '';
+  display: block;
+  height: 0;
+}
+
+/* Decorative particles via sibling pseudo-elements */
+.status-panel::after {
+  content: '🍃  🌿  🍀  🌸  ✨';
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  opacity: 0.3;
+  padding: 0.5rem 2rem 0;
+  pointer-events: none;
+  animation: leaves-drift 6s ease-in-out infinite;
+  letter-spacing: 8px;
+}
+
+@keyframes leaves-drift {
+  0%,100% { transform: translateX(0px); opacity: 0.25; }
+  33%      { transform: translateX(6px);  opacity: 0.35; }
+  66%      { transform: translateX(-4px); opacity: 0.28; }
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 540px) {
+  header h1 { font-size: 1.6rem; }
+  header::after { height: 70px; }
+  .status-panel { flex-direction: column; align-items: stretch; }
+  .generate-btn { text-align: center; }
+  .counter { justify-content: center; }
+}

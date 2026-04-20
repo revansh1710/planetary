@@ -1,1 +1,27 @@
-<p>dashboard works!</p>
+<div class="dashboard-wrapper">
+      <header>
+        <h1>🌍 Eco-Hero Dashboard</h1>
+      </header>
+
+      <app-activity-grid />
+
+      <div class="status-panel">
+        <p class="counter">Actions logged: <strong>{{ activityService.loggedActivities().length }}</strong></p>
+        
+        @if (activityService.canGenerateStory()) {
+          <button class="generate-btn" (click)="generateAdventure()" [disabled]="isGenerating()">
+            {{ isGenerating() ? 'Writing your adventure...' : 'Generate My Story! ✨' }}
+          </button>
+        } @else {
+          <p class="hint">Log at least 3 actions to unlock your magic eco-adventure!</p>
+        }
+      </div>
+
+      @if (generatedStory()) {
+        <div class="story-card">
+          <h2>Your Adventure</h2>
+          <p>{{ generatedStory() }}</p>
+          <button class="reset-btn" (click)="reset()">Start a New Day</button>
+        </div>
+      }
+    </div>
