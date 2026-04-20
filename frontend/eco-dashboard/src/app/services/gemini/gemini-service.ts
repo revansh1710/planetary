@@ -6,7 +6,7 @@ import {firstValueFrom} from 'rxjs';
 })
 export class GeminiService {
   private http=inject(HttpClient);
-  private apiUrl='http://localhost:3000/api/generate-story';
+  private apiUrl='https://planetary-rtsy.onrender.com/api/generate-story';
   async fetchEcoStory(activities:string[]):Promise<string>{
     try{
       const payload={activities}
